@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# Real-time Leaderboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack system that provides real-time leaderboard tracking for users across multiple games or activities. The project demonstrates real-time data management, ranking logic, and scalable architecture using modern web technologies.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+- [Features](#features)
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The **Real-time Leaderboard** project provides a platform where users can:
 
-## Expanding the ESLint configuration
+- Register and authenticate securely.
+- Submit scores for various games or activities.
+- View a global leaderboard that updates dynamically.
+- Track their own ranking in real time.
+- Generate reports of top players for a specific time period.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The system leverages Redis sorted sets for efficient real-time leaderboard management, making it scalable and performant.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **User Authentication:** Secure user registration and login with session or JWT-based auth.
+- **Score Submission:** API endpoints to submit and update user scores.
+- **Leaderboard Storage:** Uses Redis sorted sets for storing and ranking scores.
+- **Real-Time Updates:** Automatic leaderboard refresh on score changes.
+- **User Rankings:** Query user rank and score efficiently.
+- **Top Players Report:** Generate reports for top players within a given date range.
+- **Dockerized Environment:** Full stack runs via Docker for consistent setup across environments.
