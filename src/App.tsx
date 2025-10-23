@@ -1,14 +1,5 @@
-import { useState } from 'react'
-
-
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-
-    </>
-  )
+  return <h1>Hello from Real Time Leaderboard</h1>;
 }
 
-export default App
+export default App;
