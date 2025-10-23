@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Run Prettier
+        run: pnpm exec prettier --check .
+
       - name: Run ESLint
         run: pnpm run lint
 
